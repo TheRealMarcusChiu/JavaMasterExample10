@@ -1,4 +1,4 @@
-package network.http_url_connection;
+package network.url.c_http_url_connection;
 
 import org.junit.Test;
 
