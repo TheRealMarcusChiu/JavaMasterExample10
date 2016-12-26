@@ -1,0 +1,18 @@
+    @RequestMapping(value = "/moderate/suppress-post", method = RequestMethod.POST)
+    @ResponseBody
+    public void suppressPost(Integer postId) {
+        int userId = securityService.findLoggedInUserId();
+        PostData postData = postService.getPostDataById(postId);
+        List<FlagReasonData> flags = postData.getFlagReasonDescriptions();
+        List<Integer> flagReasonIds = new ArrayList<>();
+
+        //TODO: make this for loop a stream maybe???
+        for (FlagReasonData data: flags) {
+            Integer id = data.getId();
+            flagReasonIds.add(id);
+        }
+
+        Status status = userModeratorService.suppressPostWithFlagReasonIds(userId, flagReasonIds, postId);
+        System.out.println(status);
+
+    }
