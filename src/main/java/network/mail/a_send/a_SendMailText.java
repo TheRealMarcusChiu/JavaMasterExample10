@@ -1,6 +1,6 @@
-package mail.a_send;
+package network.mail.a_send;
 
-import mail.MailPropertiesConfig;
+import network.mail.MailPropertiesConfig;
 
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
@@ -16,7 +16,7 @@ public class a_SendMailText {
 
         List<String> recipients = Arrays.asList("marcuschiu9@gmail.com");
         String subject = "custom subject";
-        String text = "The JavaMail API provides a platform-independent and protocol-independent framework to build mail and messaging applications.";
+        String text = "The JavaMail API provides a platform-independent and protocol-independent framework to build network.mail and messaging applications.";
 
         boolean sent = sendMailText.sendEmailTLS(recipients, subject, text);
 
@@ -46,11 +46,11 @@ public class a_SendMailText {
         if(!activated) return true;
 
         Properties props = new Properties();
-        props.put("mail.smtp.host", "smtp.gmail.com");
-        props.put("mail.smtp.socketFactory.port", "465");
-        props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
-        props.put("mail.smtp.auth", "true");
-        props.put("mail.smtp.port", "465");
+        props.put("network.mail.smtp.host", "smtp.gmail.com");
+        props.put("network.mail.smtp.socketFactory.port", "465");
+        props.put("network.mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+        props.put("network.mail.smtp.auth", "true");
+        props.put("network.mail.smtp.port", "465");
 
         return sendEmail(props, recipients, subject, text);
     }
@@ -66,10 +66,10 @@ public class a_SendMailText {
         if(!activated) return true;
 
         Properties props = new Properties();
-        props.put("mail.smtp.auth", "true");
-        props.put("mail.smtp.starttls.enable", "true");
-        props.put("mail.smtp.host", "smtp.gmail.com");
-        props.put("mail.smtp.port", "587");
+        props.put("network.mail.smtp.auth", "true");
+        props.put("network.mail.smtp.starttls.enable", "true");
+        props.put("network.mail.smtp.host", "smtp.gmail.com");
+        props.put("network.mail.smtp.port", "587");
 
         return sendEmail(props, recipients, subject, text);
     }

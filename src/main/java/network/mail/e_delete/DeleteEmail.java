@@ -1,6 +1,6 @@
-package mail.e_delete;
+package network.mail.e_delete;
 
-import mail.MailPropertiesConfig;
+import network.mail.MailPropertiesConfig;
 
 import javax.mail.*;
 import java.io.BufferedReader;
@@ -24,10 +24,10 @@ public class DeleteEmail {
         try {
             // get the session object
             Properties properties = new Properties();
-            properties.put("mail.store.protocol", "pop3");
-            properties.put("mail.pop3s.host", pop3Host);
-            properties.put("mail.pop3s.port", "995");
-            properties.put("mail.pop3.starttls.enable", "true");
+            properties.put("network.mail.store.protocol", "pop3");
+            properties.put("network.mail.pop3s.host", pop3Host);
+            properties.put("network.mail.pop3s.port", "995");
+            properties.put("network.mail.pop3.starttls.enable", "true");
             Session emailSession = Session.getDefaultInstance(properties);
             // emailSession.setDebug(true);
 

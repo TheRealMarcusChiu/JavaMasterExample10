@@ -1,4 +1,4 @@
-package mail;
+package network.mail;
 
 import java.io.FileInputStream;
 import java.io.IOException;

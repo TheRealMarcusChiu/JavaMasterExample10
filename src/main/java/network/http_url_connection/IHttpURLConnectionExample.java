@@ -1,4 +1,4 @@
-package http_url_connection;
+package network.http_url_connection;
 
 public interface IHttpURLConnectionExample {
 

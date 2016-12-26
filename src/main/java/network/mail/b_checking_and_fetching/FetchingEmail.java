@@ -1,6 +1,6 @@
-package mail.b_checking_and_fetching;
+package network.mail.b_checking_and_fetching;
 
-import mail.MailPropertiesConfig;
+import network.mail.MailPropertiesConfig;
 
 import javax.mail.*;
 import java.io.*;
@@ -24,10 +24,10 @@ public class FetchingEmail {
         try {
             // create properties field
             Properties properties = new Properties();
-            properties.put("mail.store.protocol", "pop3");
-            properties.put("mail.pop3.host", pop3Host);
-            properties.put("mail.pop3.port", "995");
-            properties.put("mail.pop3.starttls.enable", "true");
+            properties.put("network.mail.store.protocol", "pop3");
+            properties.put("network.mail.pop3.host", pop3Host);
+            properties.put("network.mail.pop3.port", "995");
+            properties.put("network.mail.pop3.starttls.enable", "true");
             Session emailSession = Session.getDefaultInstance(properties);
             // emailSession.setDebug(true);
 

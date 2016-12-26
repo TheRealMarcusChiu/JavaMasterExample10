@@ -1,6 +1,6 @@
-package mail.a_send;
+package network.mail.a_send;
 
-import mail.MailPropertiesConfig;
+import network.mail.MailPropertiesConfig;
 
 import javax.activation.DataHandler;
 import javax.activation.DataSource;
@@ -57,11 +57,11 @@ public class c_SendMailInlineImage {
         if(!activated) return true;
 
         Properties props = new Properties();
-        props.put("mail.smtp.host", "smtp.gmail.com");
-        props.put("mail.smtp.socketFactory.port", "465");
-        props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
-        props.put("mail.smtp.auth", "true");
-        props.put("mail.smtp.port", "465");
+        props.put("network.mail.smtp.host", "smtp.gmail.com");
+        props.put("network.mail.smtp.socketFactory.port", "465");
+        props.put("network.mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+        props.put("network.mail.smtp.auth", "true");
+        props.put("network.mail.smtp.port", "465");
 
         return sendEmail(props, recipients, subject, html, file);
     }
@@ -77,10 +77,10 @@ public class c_SendMailInlineImage {
         if(!activated) return true;
 
         Properties props = new Properties();
-        props.put("mail.smtp.auth", "true");
-        props.put("mail.smtp.starttls.enable", "true");
-        props.put("mail.smtp.host", "smtp.gmail.com");
-        props.put("mail.smtp.port", "587");
+        props.put("network.mail.smtp.auth", "true");
+        props.put("network.mail.smtp.starttls.enable", "true");
+        props.put("network.mail.smtp.host", "smtp.gmail.com");
+        props.put("network.mail.smtp.port", "587");
 
         return sendEmail(props, recipients, subject, html, file);
     }
@@ -117,7 +117,7 @@ public class c_SendMailInlineImage {
             // Set Subject: header field
             message.setSubject(subject);
 
-            // This mail has 2 part, the BODY and the embedded image
+            // This network.mail has 2 part, the BODY and the embedded image
             MimeMultipart multipart = new MimeMultipart("related");
 
             // first part (the html)

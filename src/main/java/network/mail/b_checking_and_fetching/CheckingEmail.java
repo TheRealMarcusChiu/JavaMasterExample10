@@ -1,13 +1,12 @@
-package mail.c_authentication;
+package network.mail.b_checking_and_fetching;
 
-import mail.MailPropertiesConfig;
+import network.mail.MailPropertiesConfig;
 
 import javax.mail.*;
 import java.util.Properties;
 
-public class CheckingEmailUsingAuthentication {
+public class CheckingEmail {
 
-    //instead of 'pop3' use 'pop3s' in properties
     // displays only unread emails
     public static void main(String[] args) {
         String host = "pop.gmail.com";// change accordingly
@@ -18,30 +17,21 @@ public class CheckingEmailUsingAuthentication {
         check(host, mailStoreType, username, password);
     }
 
-    public static void check(String host, String storeType, final String user, final String password) {
+    public static void check(String host, String storeType, String user, String password) {
         try {
-            // create properties field
+            //create properties field
             Properties properties = new Properties();
-            properties.put("mail.pop3s.host", host);
-            properties.put("mail.pop3s.port", "995");
-            properties.put("mail.pop3s.starttls.enable", "true");
+            properties.put("network.mail.pop3.host", host);
+            properties.put("network.mail.pop3.port", "995");
+            properties.put("network.mail.pop3.starttls.enable", "true");
+            Session emailSession = Session.getDefaultInstance(properties);
 
-            // Setup authentication, get session
-            Session emailSession = Session.getInstance(properties,
-                    new javax.mail.Authenticator() {
-                        protected PasswordAuthentication getPasswordAuthentication() {
-                            return new PasswordAuthentication(
-                                    user, password);
-                        }
-                    });
-            // emailSession.setDebug(true);
-
-            // create the POP3 store object and connect with the pop server
+            //create the POP3 store object and connect with the pop server
             Store store = emailSession.getStore("pop3s");
 
-            store.connect();
+            store.connect(host, user, password);
 
-            // create the folder object and open it
+            //create the folder object and open it
             Folder emailFolder = store.getFolder("INBOX");
             emailFolder.open(Folder.READ_ONLY);
 
@@ -56,9 +46,10 @@ public class CheckingEmailUsingAuthentication {
                 System.out.println("Subject: " + message.getSubject());
                 System.out.println("From: " + message.getFrom()[0]);
                 System.out.println("Text: " + message.getContent().toString());
+
             }
 
-            // close the store and folder objects
+            //close the store and folder objects
             emailFolder.close(false);
             store.close();
 

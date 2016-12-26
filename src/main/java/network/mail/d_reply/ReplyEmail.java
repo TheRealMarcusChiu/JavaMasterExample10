@@ -1,6 +1,6 @@
-package mail.d_reply;
+package network.mail.d_reply;
 
-import mail.MailPropertiesConfig;
+import network.mail.MailPropertiesConfig;
 
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
@@ -17,16 +17,16 @@ public class ReplyEmail {
 
     public static void main(String args[]) {
         Properties properties = new Properties();
-        properties.put("mail.store.protocol", "pop3");
+        properties.put("network.mail.store.protocol", "pop3");
 
-        properties.put("mail.pop3s.host", "pop.gmail.com");
-        properties.put("mail.pop3s.port", "995");
-        properties.put("mail.pop3.starttls.enable", "true");
+        properties.put("network.mail.pop3s.host", "pop.gmail.com");
+        properties.put("network.mail.pop3s.port", "995");
+        properties.put("network.mail.pop3.starttls.enable", "true");
 
-        properties.put("mail.smtp.auth", "true");
-        properties.put("mail.smtp.starttls.enable", "true");
-        properties.put("mail.smtp.host", "smtp.gmail.com");
-        properties.put("mail.smtp.port", "587");
+        properties.put("network.mail.smtp.auth", "true");
+        properties.put("network.mail.smtp.starttls.enable", "true");
+        properties.put("network.mail.smtp.host", "smtp.gmail.com");
+        properties.put("network.mail.smtp.port", "587");
 
         Session session = Session.getDefaultInstance(properties);
         // session.setDebug(true);
