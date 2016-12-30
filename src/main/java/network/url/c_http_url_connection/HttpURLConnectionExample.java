@@ -26,6 +26,10 @@ public class HttpURLConnectionExample implements IHttpURLConnectionExample {
 
             // optional default is GET
             connection.setRequestMethod("GET");
+            // optional default is false
+            connection.setDoOutput(false);
+            // optional default is true
+            connection.setDoInput(true);
 
             //add request header
             connection.setRequestProperty("User-Agent", "Mozilla/5.0");
@@ -35,7 +39,6 @@ public class HttpURLConnectionExample implements IHttpURLConnectionExample {
             connection.setRequestProperty("Accept-Language", "en-US,en;q=0.5");
 
             connection.setUseCaches(false);
-            connection.setDoOutput(true);
 
             // Response Code
             int responseCode = connection.getResponseCode();
