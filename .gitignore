@@ -16,3 +16,7 @@ marcus.chiu.properties
 # Maven
 log/
 target/
+
+
+# custom
+SandBox.java
