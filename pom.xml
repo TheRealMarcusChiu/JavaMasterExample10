@@ -58,6 +58,35 @@
             <version>r05</version>
         </dependency>
 
+
+        <!-- START SPRING STUFF -->
+
+        <!-- spring transaction -->
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-tx -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+            <version>4.3.4.RELEASE</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>4.3.4.RELEASE</version>
+        </dependency>
+
+        <!-- END SPRING STUFF -->
+
+        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+        <!-- for "com.mysql.jdbc.Driver" -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.6</version>
+        </dependency>
+
+
     </dependencies>
 
     <build>
