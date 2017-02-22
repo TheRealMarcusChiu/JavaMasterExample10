@@ -8,19 +8,53 @@
     <artifactId>MasterExample</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <properties>
+        <powermock.version>1.6.6</powermock.version>
+    </properties>
+
     <dependencies>
-        <!-- https://mvnrepository.com/artifact/junit/junit -->
+
+        <!-- POWER MOCK -->
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
+            <groupId>org.powermock</groupId>
+            <artifactId>powermock-module-junit4</artifactId>
+            <version>${powermock.version}</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.mockito/mockito-all -->
         <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-all</artifactId>
-            <version>1.9.5</version>
+            <groupId>org.powermock</groupId>
+            <artifactId>powermock-api-mockito</artifactId>
+            <version>${powermock.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.powermock</groupId>
+            <artifactId>powermock-core</artifactId>
+            <version>${powermock.version}</version>
+        </dependency>
+
+        <!-- if this was uncommented and placed above the power mock dependencies it would fail when running Mockito/JUnit tests-->
+        <!-- however, if they were placed below the power mock dependencies, the mockito/junit tests would pass -->
+        <!-- START - REPLACED BY POWER MOCK BELOW -->
+        <!--&lt;!&ndash;https://mvnrepository.com/artifact/org.testng/testng&ndash;&gt;-->
+        <!--&lt;!&ndash;for @Test&ndash;&gt;-->
+        <!--<dependency>-->
+            <!--<groupId>org.testng</groupId>-->
+            <!--<artifactId>testng</artifactId>-->
+            <!--<version>6.9.4</version>-->
+        <!--</dependency>-->
+        <!--&lt;!&ndash;https://mvnrepository.com/artifact/junit/junit&ndash;&gt;-->
+        <!--&lt;!&ndash;include @annotations&ndash;&gt;-->
+        <!--<dependency>-->
+            <!--<groupId>junit</groupId>-->
+            <!--<artifactId>junit</artifactId>-->
+            <!--<version>4.12</version>-->
+        <!--</dependency>-->
+        <!--&lt;!&ndash;https://mvnrepository.com/artifact/org.mockito/mockito-all&ndash;&gt;-->
+        <!--<dependency>-->
+            <!--<groupId>org.mockito</groupId>-->
+            <!--<artifactId>mockito-all</artifactId>-->
+            <!--<version>1.10.8</version>-->
+        <!--</dependency>-->
+        <!-- END - REPLACED BY POWER MOCK BELOW -->
 
         <!-- https://mvnrepository.com/artifact/javax.mail/mail -->
         <dependency>

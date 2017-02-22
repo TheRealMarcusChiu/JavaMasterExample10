@@ -1,6 +1,7 @@
 package test.junit.time;
 
 import org.junit.Test;
+import org.junit.runners.model.TestTimedOutException;
 
 import static java.lang.Thread.sleep;
 
@@ -19,6 +20,9 @@ public class JunitTimeTest {
         }
     }
 
+    /**
+     * this is expected to fail
+     */
     @Test(timeout = 1000)
     public void testTimeFailure() {
         try {
