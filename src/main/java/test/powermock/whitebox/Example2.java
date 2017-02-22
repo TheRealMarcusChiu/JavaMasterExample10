@@ -1,4 +1,4 @@
-package test.mockito.privatevariable;
+package test.powermock.whitebox;
 
 public class Example2 {
 
