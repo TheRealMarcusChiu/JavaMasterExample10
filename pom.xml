@@ -14,47 +14,20 @@
 
     <dependencies>
 
-        <!-- POWER MOCK -->
+        <!-- START SPRING STUFF -->
+        <!-- spring transaction -->
         <dependency>
-            <groupId>org.powermock</groupId>
-            <artifactId>powermock-module-junit4</artifactId>
-            <version>${powermock.version}</version>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+            <version>4.3.4.RELEASE</version>
         </dependency>
+        <!-- spring jdbc -->
         <dependency>
-            <groupId>org.powermock</groupId>
-            <artifactId>powermock-api-mockito</artifactId>
-            <version>${powermock.version}</version>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>4.3.4.RELEASE</version>
         </dependency>
-        <dependency>
-            <groupId>org.powermock</groupId>
-            <artifactId>powermock-core</artifactId>
-            <version>${powermock.version}</version>
-        </dependency>
-
-        <!-- if this was uncommented and placed above the power mock dependencies it would fail when running Mockito/JUnit tests-->
-        <!-- however, if they were placed below the power mock dependencies, the mockito/junit tests would pass -->
-        <!-- START - REPLACED BY POWER MOCK BELOW -->
-        <!--&lt;!&ndash;https://mvnrepository.com/artifact/org.testng/testng&ndash;&gt;-->
-        <!--&lt;!&ndash;for @Test&ndash;&gt;-->
-        <!--<dependency>-->
-            <!--<groupId>org.testng</groupId>-->
-            <!--<artifactId>testng</artifactId>-->
-            <!--<version>6.9.4</version>-->
-        <!--</dependency>-->
-        <!--&lt;!&ndash;https://mvnrepository.com/artifact/junit/junit&ndash;&gt;-->
-        <!--&lt;!&ndash;include @annotations&ndash;&gt;-->
-        <!--<dependency>-->
-            <!--<groupId>junit</groupId>-->
-            <!--<artifactId>junit</artifactId>-->
-            <!--<version>4.12</version>-->
-        <!--</dependency>-->
-        <!--&lt;!&ndash;https://mvnrepository.com/artifact/org.mockito/mockito-all&ndash;&gt;-->
-        <!--<dependency>-->
-            <!--<groupId>org.mockito</groupId>-->
-            <!--<artifactId>mockito-all</artifactId>-->
-            <!--<version>1.10.8</version>-->
-        <!--</dependency>-->
-        <!-- END - REPLACED BY POWER MOCK BELOW -->
+        <!-- END SPRING STUFF -->
 
         <!-- https://mvnrepository.com/artifact/javax.mail/mail -->
         <dependency>
@@ -77,7 +50,7 @@
             <version>1.11.75</version>
         </dependency>
 
-        <!-- annotation library for accessors and mutators -->
+        <!-- the awesome lombok project -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -85,32 +58,12 @@
             <scope>compile</scope>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
+        <!-- the awesome guava project -->
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
             <version>r05</version>
         </dependency>
-
-
-        <!-- START SPRING STUFF -->
-
-        <!-- spring transaction -->
-        <!-- https://mvnrepository.com/artifact/org.springframework/spring-tx -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-tx</artifactId>
-            <version>4.3.4.RELEASE</version>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-jdbc</artifactId>
-            <version>4.3.4.RELEASE</version>
-        </dependency>
-
-        <!-- END SPRING STUFF -->
 
         <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
         <!-- for "com.mysql.jdbc.Driver" -->
@@ -143,6 +96,55 @@
             <artifactId>commons-lang</artifactId>
             <version>2.6</version>
         </dependency>
+
+
+        <!-- TESTS DEPENDENCIES -->
+
+        <!-- START - CAN BE REPLACED BY POWER MOCK BELOW -->
+        <!-- as of now we don't really need these three if we have powermock -->
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>6.9.4</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>1.10.19</version>
+        </dependency>
+        <!-- END - REPLACED BY POWER MOCK BELOW -->
+
+        <!-- POWER MOCK -->
+        <dependency>
+            <groupId>org.powermock</groupId>
+            <artifactId>powermock-module-junit4</artifactId>
+            <version>${powermock.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.powermock</groupId>
+            <artifactId>powermock-api-mockito</artifactId>
+            <version>${powermock.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.powermock</groupId>
+            <artifactId>powermock-core</artifactId>
+            <version>${powermock.version}</version>
+        </dependency>
+
+        <!-- mockito-all goes into conflict with powermock -->
+        <!-- if placed above the powermock dependencies, running tests will FAIL -->
+        <!-- if placed below the powermock dependencies, running tests will PASS -->
+        <!-- but we don't really need this if we have powermock -->
+        <!--<dependency>-->
+            <!--<groupId>org.mockito</groupId>-->
+            <!--<artifactId>mockito-all</artifactId>-->
+            <!--<version>1.9.5</version>-->
+        <!--</dependency>-->
 
     </dependencies>
 

@@ -2,12 +2,12 @@ package test.powermock.mock.newly.created.objects.within.method;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Mock;
 import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 /**
@@ -17,11 +17,17 @@ import static org.mockito.Mockito.when;
 @PrepareForTest({Example.class})
 public class ExampleTest {
 
+    // interchangeable with mock(SubExample.class);
+    @Mock
+    SubExample subExample;
+
     @Test
     public void test() throws Exception {
 
+        // interchangeable with @Mock above
+        // SubExample subExample = mock(SubExample.class);
+
         // mock subExample
-        SubExample subExample = mock(SubExample.class);
         when(subExample.getInteger()).thenReturn(1);
 
         // whenever a new creation of SubExample(with any arguments) return mocked version
