@@ -1,4 +1,4 @@
-package database.a_jdbc_template;
+package database.spring.a_jdbc_template;
 
 import org.junit.Test;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -21,7 +21,7 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
  * );
  *****************************************************
  */
-public class InsertExample {
+public class DeleteExample {
 
     public JdbcTemplate getJdbcTemplate() {
         DriverManagerDataSource dbConn = new DriverManagerDataSource();
@@ -35,12 +35,12 @@ public class InsertExample {
     }
 
     @Test
-    public void insert() {
+    public void delete() {
 
         JdbcTemplate jdbcTemplate = getJdbcTemplate();
 
         int result;
-        result = jdbcTemplate.update("INSERT INTO user(name, submission_date) VALUES(?, ?)", "Jesus Christ", "2000-01-01");
+        result = jdbcTemplate.update("DELETE FROM user WHERE name = ?", "Jesus Christ");
 
         System.out.println(Integer.toString(result));
     }

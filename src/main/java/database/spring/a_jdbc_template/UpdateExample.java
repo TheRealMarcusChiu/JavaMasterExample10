@@ -1,4 +1,4 @@
-package database.a_jdbc_template;
+package database.spring.a_jdbc_template;
 
 import org.junit.Test;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -21,7 +21,7 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
  * );
  *****************************************************
  */
-public class DeleteExample {
+public class UpdateExample {
 
     public JdbcTemplate getJdbcTemplate() {
         DriverManagerDataSource dbConn = new DriverManagerDataSource();
@@ -35,12 +35,12 @@ public class DeleteExample {
     }
 
     @Test
-    public void delete() {
+    public void update() {
 
         JdbcTemplate jdbcTemplate = getJdbcTemplate();
 
         int result;
-        result = jdbcTemplate.update("DELETE FROM user WHERE name = ?", "Jesus Christ");
+        result = jdbcTemplate.update("UPDATE user u set u.name = ?, u.last_modified = NOW() WHERE u.id = ?", "new name", 2);
 
         System.out.println(Integer.toString(result));
     }

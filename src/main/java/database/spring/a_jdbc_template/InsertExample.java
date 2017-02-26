@@ -1,11 +1,8 @@
-package database.a_jdbc_template;
+package database.spring.a_jdbc_template;
 
 import org.junit.Test;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
-
-import java.util.List;
-import java.util.Map;
 
 /**
  * Example use of PlatformTransactionManager
@@ -24,9 +21,9 @@ import java.util.Map;
  * );
  *****************************************************
  */
-public class SelectExample {
+public class InsertExample {
 
-    public static JdbcTemplate getJdbcTemplate() {
+    public JdbcTemplate getJdbcTemplate() {
         DriverManagerDataSource dbConn = new DriverManagerDataSource();
 
         dbConn.setDriverClassName("com.mysql.jdbc.Driver"); // need mysql/mysql-connector-java/5.1.6 in pom.xml
@@ -38,24 +35,13 @@ public class SelectExample {
     }
 
     @Test
-    public void queryList() {
+    public void insert() {
 
         JdbcTemplate jdbcTemplate = getJdbcTemplate();
 
-        List<Map<String, Object>> results;
-        results = jdbcTemplate.queryForList("SELECT * FROM user u LIMIT ?", 3);
+        int result;
+        result = jdbcTemplate.update("INSERT INTO user(name, submission_date) VALUES(?, ?)", "Jesus Christ", "2000-01-01");
 
-        if (results != null && results.size() > 0) {
-
-            for ( int i = 0; i < results.size(); i++) {
-
-                Map<String, Object> row = results.get(i);
-
-                String name = String.valueOf(row.get("name"));
-                String lastModified = String.valueOf(row.get("last_modified"));
-
-                System.out.println(name + " : " + lastModified);
-            }
-        }
+        System.out.println(Integer.toString(result));
     }
 }

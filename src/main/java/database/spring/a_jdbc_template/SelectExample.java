@@ -1,4 +1,4 @@
-package database.a_jdbc_template;
+package database.spring.a_jdbc_template;
 
 import org.junit.Test;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -24,9 +24,9 @@ import java.util.Map;
  * );
  *****************************************************
  */
-public class UpdateExample {
+public class SelectExample {
 
-    public JdbcTemplate getJdbcTemplate() {
+    public static JdbcTemplate getJdbcTemplate() {
         DriverManagerDataSource dbConn = new DriverManagerDataSource();
 
         dbConn.setDriverClassName("com.mysql.jdbc.Driver"); // need mysql/mysql-connector-java/5.1.6 in pom.xml
@@ -38,13 +38,24 @@ public class UpdateExample {
     }
 
     @Test
-    public void update() {
+    public void queryList() {
 
         JdbcTemplate jdbcTemplate = getJdbcTemplate();
 
-        int result;
-        result = jdbcTemplate.update("UPDATE user u set u.name = ?, u.last_modified = NOW() WHERE u.id = ?", "new name", 2);
+        List<Map<String, Object>> results;
+        results = jdbcTemplate.queryForList("SELECT * FROM user u LIMIT ?", 3);
 
-        System.out.println(Integer.toString(result));
+        if (results != null && results.size() > 0) {
+
+            for ( int i = 0; i < results.size(); i++) {
+
+                Map<String, Object> row = results.get(i);
+
+                String name = String.valueOf(row.get("name"));
+                String lastModified = String.valueOf(row.get("last_modified"));
+
+                System.out.println(name + " : " + lastModified);
+            }
+        }
     }
 }
