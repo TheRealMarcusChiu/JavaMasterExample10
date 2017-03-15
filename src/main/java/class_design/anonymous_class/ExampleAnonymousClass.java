@@ -26,11 +26,11 @@ public class ExampleAnonymousClass {
      */
     @Test
     public void testLambda() {
-        new Thread( () -> System.out.println("Hello, World! ONE")).start();
+        new Thread( () -> System.out.println("Hello, World! MONDAY")).start();
 
         new Thread( () -> {
-            System.out.println("Hello, World! ONE");
-            System.out.println("Hello, World! TWO");
+            System.out.println("Hello, World! MONDAY");
+            System.out.println("Hello, World! TUESDAY");
         }).start();
     }
 }
