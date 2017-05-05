@@ -77,10 +77,16 @@ public class d_SendMailWithAttachment {
         if(!activated) return true;
 
         Properties props = new Properties();
-        props.put("network.mail.smtp.auth", "true");
-        props.put("network.mail.smtp.starttls.enable", "true");
-        props.put("network.mail.smtp.host", "smtp.gmail.com");
-        props.put("network.mail.smtp.port", "587");
+//        props.put("network.mail.smtp.auth", "true");
+//        props.put("network.mail.smtp.starttls.enable", "true");
+//        props.put("network.mail.smtp.host", "smtp.gmail.com");
+//        props.put("network.mail.smtp.port", "587");
+
+        // for some reason this works instead of the ones above
+        props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.smtp.host", "smtp.gmail.com");
+        props.put("mail.smtp.port", "587");
+        props.put("mail.smtp.auth", "true");
 
         return sendEmail(props, recipients, subject, text, file);
     }
