@@ -1,0 +1,38 @@
+https://www.javatpoint.com/custom-annotation
+
+@annotations are like metadata for code
+
+There are three types of annotations:
+- Marker Annotation
+- Single-Value Annotation
+- Multi-Value Annotation
+
+There are 4 built-in @annotations for custom annotations:
+- @Target       - specify at which type, the annotation is used.
+- @Retention    - specify to what level annotation will be available
+- @Inherited    - by default, annotations are not inherited to subclasses. The @Inherited annotation marks the annotation to be inherited to subclasses.
+- @Documented   - marks the annotation for inclusion in the documentation.
+
+
+@TARGET
+
+ElementType.TYPE	        - class, interface or enumeration
+ElementType.FIELD	        - fields
+ElementType.METHOD	        - methods
+ElementType.CONSTRUCTOR	    - constructors
+ElementType.LOCAL_VARIABLE	- local variables
+ElementType.ANNOTATION_TYPE	- annotation type
+ElementType.PARAMETER	    - parameter
+
+example use cases
+@Target(ElementType.TYPE)
+@Target({ElementType.TYPE, ElementType.FIELD, ElementType.METHOD})
+
+
+@RETENTION
+
+RetentionPolicy.SOURCE	- refers to the source code, discarded during compilation. It will not be available in the compiled class.
+RetentionPolicy.CLASS	- refers to the .class file, available to java compiler but not to JVM . It is included in the class file.
+RetentionPolicy.RUNTIME	- refers to the runtime, available to java compiler and JVM .
+
+
