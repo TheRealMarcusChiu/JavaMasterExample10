@@ -5,6 +5,10 @@ import org.junit.Test;
 
 import java.io.*;
 
+/**
+ * Java8 has finally got it own Base64 encoder/decoder
+ * this is
+ */
 public class Base64Tests {
 
     public static String encodeFileToBase64Binary(File file) {
