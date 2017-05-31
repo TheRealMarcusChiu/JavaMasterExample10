@@ -21,38 +21,46 @@
             <artifactId>spring-boot-autoconfigure</artifactId>
             <version>1.5.2.RELEASE</version>
         </dependency>
-        <!-- spring context -->
+        <!-- spring-context -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
             <version>4.3.4.RELEASE</version>
         </dependency>
+        <!-- spring-web -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>4.3.4.RELEASE</version>
+        </dependency>
 
-        <!-- spring transaction -->
+
+        <!-- spring-transaction -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-tx</artifactId>
             <version>4.3.4.RELEASE</version>
         </dependency>
-        <!-- spring jdbc -->
+        <!-- spring-jdbc -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>
             <version>4.3.4.RELEASE</version>
         </dependency>
-        <!-- Spring AOP + AspectJ -->
+        <!-- spring-aop -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-aop</artifactId>
             <version>4.3.4.RELEASE</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.aspectj/aspectjtools -->
+        <!-- END SPRING STUFF -->
+
+        <!-- AspectJ -->
         <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjtools</artifactId>
             <version>1.6.2</version>
         </dependency>
-        <!-- END SPRING STUFF -->
 
         <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
         <!-- needed for EnumUtils class -->
