@@ -1,4 +1,4 @@
-package third.party.xml.read;
+package third.party.xml.w3c.read;
 
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.DocumentBuilder;
