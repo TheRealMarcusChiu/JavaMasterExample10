@@ -1,0 +1,6 @@
+https://www.rabbitmq.com/tutorials/tutorial-one-java.html
+
+Make Sure you have RabbitMQ server running on your local machine with default configuration
+
+Sender.java   - produces a message "Hello World!" and sends it to the RabbitMQ which will be queued into the "hello" queue
+Receiver.java - waits and consumes a message within the "hello" queue and prints out the message "Hello World!"
