@@ -130,6 +130,13 @@
             <version>1.6.1</version>
         </dependency>
 
+        <!-- https://www.mkyong.com/logging/log4j-hello-world-example/ -->
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
+        </dependency>
+
         <!-- https://mvnrepository.com/artifact/commons-lang/commons-lang -->
         <!-- for BooleanUtil use -->
         <dependency>
