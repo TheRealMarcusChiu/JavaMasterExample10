@@ -23,14 +23,38 @@ public class Receiver {
         form of an object that will buffer the messages until we're ready to use them.
         That is what a DefaultConsumer subclass does.
          */
-        Consumer consumer = new DefaultConsumer(channel) {
-            @Override
-            public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body)
-                    throws IOException {
-                String message = new String(body, "UTF-8");
-                System.out.println(" [x] Received '" + message + "'");
-            }
-        };
+        Consumer consumer = new DefaultConsumer2(channel);
+        /*
+        The commented out code below works the same as the above line
+        The only difference is the way it is coded and when this class is compiled it
+        creates the same:
+        - Receiver.class
+        - Receiver$1.class
+        with an additional:
+        - Receiver$DefaultConsumer2.class
+        */
+//        Consumer consumer = new DefaultConsumer(channel) {
+//            @Override
+//            public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body)
+//                    throws IOException {
+//                String message = new String(body, "UTF-8");
+//                System.out.println(" [x] Received '" + message + "'");
+//            }
+//        };
         channel.basicConsume(QUEUE_NAME, true, consumer);
+    }
+
+    public static class DefaultConsumer2 extends DefaultConsumer {
+
+        public DefaultConsumer2(Channel channel) {
+            super(channel);
+        }
+
+        @Override
+        public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body)
+                throws IOException {
+            String message = new String(body, "UTF-8");
+            System.out.println(" [x] Received '" + message + "'");
+        }
     }
 }

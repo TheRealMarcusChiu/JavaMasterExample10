@@ -1,5 +1,7 @@
 marcus.chiu.properties
 
+*.class
+
 # Eclipse
 .classpath
 .project
