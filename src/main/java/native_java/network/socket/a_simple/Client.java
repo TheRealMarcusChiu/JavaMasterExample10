@@ -5,12 +5,14 @@ import java.net.Socket;
 
 public class Client {
 
+    public static String host = "localhost";
+    public static int port = 8080;
+
     public static void main(String [] args) {
-        String serverName = "localhost";
-        int port = Integer.parseInt("8080");
+
         try {
-            System.out.println("Connecting to " + serverName + " on port " + port);
-            Socket client = new Socket(serverName, port);
+            System.out.println("Connecting to " + host + " on port " + port);
+            Socket client = new Socket(host, port);
 
             System.out.println("Just connected to " + client.getRemoteSocketAddress());
             OutputStream outToServer = client.getOutputStream();

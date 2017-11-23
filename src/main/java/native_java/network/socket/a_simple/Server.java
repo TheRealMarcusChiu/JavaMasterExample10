@@ -7,30 +7,32 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.SocketTimeoutException;
 
-public class Server extends Thread {
+public class Server {
+
+    public static int port = 8080;
 
     public static void main(String [] args) {
-        int port = Integer.parseInt("8080");
         try {
-            Thread t = new Server(port);
+            Thread t = new ServerClass(port);
             t.start();
         }catch(IOException e) {
             e.printStackTrace();
         }
     }
+}
 
+class ServerClass extends Thread {
     private ServerSocket serverSocket;
 
-    public Server(int port) throws IOException {
+    public ServerClass(int port) throws IOException {
         serverSocket = new ServerSocket(port);
-        serverSocket.setSoTimeout(10000);
+        //serverSocket.setSoTimeout(10000); <-- closes socket after `x` milliseconds
     }
 
     public void run() {
         while(true) {
             try {
-                System.out.println("Waiting for client on port " +
-                        serverSocket.getLocalPort() + "...");
+                System.out.println("Waiting for client on port " + serverSocket.getLocalPort() + "...");
                 Socket server = serverSocket.accept();
 
                 System.out.println("Just connected to " + server.getRemoteSocketAddress());
