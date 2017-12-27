@@ -11,7 +11,7 @@ public class ReadFromResource {
         ReadFromResource readFromResource = new ReadFromResource();
         FileParse fileParse = new FileParse();
 
-        String path = "-.txt";
+        String path = "dir/-.txt";
         File file = readFromResource.getFile(path);
 
         String string = fileParse.scannerWay(file);
