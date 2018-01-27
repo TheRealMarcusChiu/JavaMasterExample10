@@ -1,6 +1,7 @@
 package third.party.json.schema;
 
 import org.everit.json.schema.Schema;
+import org.everit.json.schema.SchemaException;
 import org.everit.json.schema.ValidationException;
 import org.everit.json.schema.loader.SchemaLoader;
 import org.json.JSONObject;
@@ -34,7 +35,7 @@ public class Main {
                 "        \"price\": {\n" +
                 "            \"type\": \"number\",\n" +
                 "            \"minimum\": 0,\n" +
-                "            \"exclusiveMinimum\": true\n" +
+                "            \"exclusiveMinimum\": tre\n" +
                 "        }\n" +
                 "    },\n" +
                 "    \"required\": [\"id\", \"name\", \"price\"]\n" +
@@ -46,12 +47,19 @@ public class Main {
                 "    \"price\": 0\n" +
                 "}");
 
-        Schema schema = SchemaLoader.load(jsonSchema);
-
         try {
+            // this validates the jsonSchema based on $schema property
+            Schema schema = SchemaLoader.load(jsonSchema);
+
+            // validate json subject against custom json schema
             schema.validate(jsonSubject);
         }
+        catch (SchemaException e) {
+            // custom json schema failed $schema definition
+            System.out.println(e.getMessage());
+        }
         catch (ValidationException e) {
+            // json subject failed custom json schema
             System.out.println(e.getMessage());
         }
     }
