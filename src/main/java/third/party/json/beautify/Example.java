@@ -1,6 +1,7 @@
 package third.party.json.beautify;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.json.JSONObject;
 
 import java.io.IOException;
 
@@ -46,5 +47,9 @@ public class Example {
         String beautify = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(obj);
 
         System.out.println(beautify);
+
+        JSONObject jsonObject = new JSONObject(json);
+        String jsonString = jsonObject.toString();
+        System.out.println(jsonString);
     }
 }
