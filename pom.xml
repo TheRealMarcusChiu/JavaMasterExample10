@@ -95,7 +95,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.14.8</version>
+            <version>1.16.22</version>
             <scope>compile</scope>
         </dependency>
 
@@ -161,6 +161,15 @@
         </dependency>
         <!-- END - JSON Validator Example -->
 
+        <!-- https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api -->
+        <!-- this is needed for java 10 build error -->
+        <!-- package javax.xml.bind is not visible (package javax.xml.bind is declared in module java.xml.bind -->
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>2.3.0</version>
+        </dependency>
+
         <!-- TESTS DEPENDENCIES -->
 
         <!-- START - CAN BE REPLACED BY POWER MOCK BELOW -->
@@ -216,9 +225,9 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.0</version>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <release>10</release>  <!-- or <release>11</release>-->
                 </configuration>
             </plugin>
         </plugins>
