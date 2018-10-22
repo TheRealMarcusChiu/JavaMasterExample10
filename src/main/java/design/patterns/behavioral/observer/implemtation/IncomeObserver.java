@@ -1,7 +1,7 @@
-package design.patterns.observer.implemtation;
+package design.patterns.behavioral.observer.implemtation;
 
-import design.patterns.observer.i.Observer;
-import design.patterns.observer.i.Subject;
+import design.patterns.behavioral.observer.i.Observer;
+import design.patterns.behavioral.observer.i.Subject;
 
 public class IncomeObserver implements Observer {
     private Subject stockData;

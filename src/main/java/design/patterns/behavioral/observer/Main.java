@@ -1,8 +1,8 @@
-package design.patterns.observer;
+package design.patterns.behavioral.observer;
 
-import design.patterns.observer.i.Observer;
-import design.patterns.observer.implemtation.IncomeObserver;
-import design.patterns.observer.implemtation.StockDataSubject;
+import design.patterns.behavioral.observer.i.Observer;
+import design.patterns.behavioral.observer.implemtation.IncomeObserver;
+import design.patterns.behavioral.observer.implemtation.StockDataSubject;
 
 public class Main {
     public static void main(String[] args) {
