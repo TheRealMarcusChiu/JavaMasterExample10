@@ -228,6 +228,8 @@
                 <version>3.8.0</version>
                 <configuration>
                     <release>10</release>  <!-- or <release>11</release>-->
+                    <target>1.10</target>
+                    <source>1.10</source>
                 </configuration>
             </plugin>
         </plugins>
