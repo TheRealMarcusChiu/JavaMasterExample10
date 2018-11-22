@@ -1,8 +1,12 @@
 package algorithms.line.intersection;
 
+import org.junit.Assert;
+import org.junit.Test;
+
 /**
  * https://www.geeksforgeeks.org/check-if-two-given-line-segments-intersect/
  */
+@org.testng.annotations.Test
 public class Main {
 
     private static Orientation orientation(Point one, Point two) {
@@ -48,8 +52,9 @@ public class Main {
                 orientation(oneB, twoB) == Orientation.COLLINEAR &&
                 orientation(twoB_twoA, oneA_twoA) == Orientation.COLLINEAR &&
                 orientation(twoB_twoA, oneB_twoA) == Orientation.COLLINEAR) {
-            // if lines are collinear then if xIntersects then y also intersects
-            return xIntersect(one, two);
+            if (xIntersect(one, two) && yIntersect(one, two)) {
+                return true;
+            }
         }
         return false;
     }
@@ -68,16 +73,68 @@ public class Main {
         return false;
     }
 
-    public static void main(String[] args) {
-        System.out.println(isLineIntersect(
+    private static boolean yIntersect(Line one, Line two) {
+        double aMinY = Double.min(one.a.y, one.b.y);
+        double aMaxY = Double.max(one.a.y, one.b.y);
+
+        if (aMinY <= two.a.y && two.a.y <= aMaxY) {
+            return true;
+        }
+        else if (aMinY <= two.b.y && two.b.y <= aMaxY) {
+            return true;
+        }
+
+        return false;
+    }
+
+    @Test
+    public void test1() {
+        // two ends of collinear lines touching
+        boolean t = isLineIntersect(
                 new Line(
                         new Point(0d,1d),
                         new Point(5d,1d)
                 ),
                 new Line(
-                        new Point(0d,1d),
+                        new Point(10d,1d),
                         new Point(5d,1d)
                 )
-        ));
+        );
+
+        Assert.assertTrue(t);
+    }
+
+    @Test
+    public void test2() {
+        // two ends of collinear lines BARELY touching
+        boolean t = isLineIntersect(
+                new Line(
+                        new Point(0d,0d),
+                        new Point(0d,1d)
+                ),
+                new Line(
+                        new Point(0d,1.01d),
+                        new Point(0d,2d)
+                )
+        );
+
+        Assert.assertFalse(t);
+    }
+
+    @Test
+    public void test3() {
+        // cross lines
+        boolean t = isLineIntersect(
+                new Line(
+                        new Point(0d,1d),
+                        new Point(1d,0d)
+                ),
+                new Line(
+                        new Point(0d,0d),
+                        new Point(1d,1d)
+                )
+        );
+
+        Assert.assertTrue(t);
     }
 }
