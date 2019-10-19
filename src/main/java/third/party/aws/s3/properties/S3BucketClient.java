@@ -1,4 +1,4 @@
-package third.party.aws.s3;
+package third.party.aws.s3.properties;
 
 import com.amazonaws.AmazonClientException;
 import com.amazonaws.AmazonServiceException;

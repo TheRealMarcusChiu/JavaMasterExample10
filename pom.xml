@@ -85,6 +85,7 @@
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk -->
+        <!-- for communicating with AWS services -->
         <dependency>
             <groupId>com.amazonaws</groupId>
             <artifactId>aws-java-sdk</artifactId>
@@ -92,6 +93,7 @@
         </dependency>
 
         <!-- the awesome lombok project -->
+        <!-- for automatically generating getters and setters of POJOs during compile-time -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>

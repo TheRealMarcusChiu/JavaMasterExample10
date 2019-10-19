@@ -1,4 +1,4 @@
-package third.party.aws.s3;
+package third.party.aws.s3.properties;
 
 import third.party.aws.AWSPropertiesConfig;
 import com.amazonaws.services.s3.model.S3Object;
