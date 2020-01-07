@@ -1,4 +1,4 @@
-package third.party.xml.jaxb;
+package xml.jaxb;
 
 import org.junit.Test;
 

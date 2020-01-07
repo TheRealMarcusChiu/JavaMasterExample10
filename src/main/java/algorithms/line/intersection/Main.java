@@ -6,7 +6,6 @@ import org.junit.Test;
 /**
  * https://www.geeksforgeeks.org/check-if-two-given-line-segments-intersect/
  */
-@org.testng.annotations.Test
 public class Main {
 
     private static Orientation orientation(Point one, Point two) {

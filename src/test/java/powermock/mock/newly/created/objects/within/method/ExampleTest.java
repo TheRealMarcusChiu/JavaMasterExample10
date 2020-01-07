@@ -8,6 +8,7 @@ import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 /**
@@ -25,7 +26,7 @@ public class ExampleTest {
     public void test() throws Exception {
 
         // interchangeable with @Mock above
-        // SubExample subExample = mock(SubExample.class);
+        SubExample subExample = mock(SubExample.class);
 
         // mock subExample
         when(subExample.getInteger()).thenReturn(1);
@@ -36,7 +37,8 @@ public class ExampleTest {
         // this function will create a new SubExample, which will be replaced by the mocked version
         Integer response = new Example().example(10);
 
-        assertEquals(new Integer(1), response);
+        Integer one = 1;
+        assertEquals(one, response);
     }
 }
 
