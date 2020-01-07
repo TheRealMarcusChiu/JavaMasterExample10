@@ -23,5 +23,6 @@ log/
 target/
 
 # custom
+*.log
 .factorypath
 _sandbox
