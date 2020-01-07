@@ -12,6 +12,9 @@ marcus.chiu.properties
 *.iml
 *.iws
 
+# VS Code
+.vscode/
+
 # Mac
 .DS_Store
 
@@ -19,6 +22,6 @@ marcus.chiu.properties
 log/
 target/
 
-
 # custom
+.factorypath
 _sandbox
