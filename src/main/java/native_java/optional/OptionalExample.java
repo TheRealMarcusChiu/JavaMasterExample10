@@ -1,14 +1,13 @@
-package native_java.java_8.optional;
+package native_java.optional;
 
 import java.util.Optional;
 
 public class OptionalExample {
 
-    public static void main(String args[]){
-
+    public static void main(String[] args){
         OptionalExample optionalExample = new OptionalExample();
         Integer value1 = null;
-        Integer value2 = new Integer(10);
+        Integer value2 = 10;
 
         //Optional.ofNullable - allows passed parameter to be null.
         Optional<Integer> a = Optional.ofNullable(value1);
@@ -28,7 +27,7 @@ public class OptionalExample {
 
         //Optional.orElse - returns the value if present otherwise returns
         //the default value passed.
-        Integer value1 = a.orElse(new Integer(0));
+        Integer value1 = a.orElse(0);
 
         //Optional.get - gets the value, value should be present
         Integer value2 = b.get();

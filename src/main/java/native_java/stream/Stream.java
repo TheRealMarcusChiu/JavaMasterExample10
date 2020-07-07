@@ -1,4 +1,4 @@
-package native_java.java_8.stream;
+package native_java.stream;
 
 import org.junit.Test;
 

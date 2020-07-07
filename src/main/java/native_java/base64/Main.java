@@ -1,4 +1,4 @@
-package native_java.java_8.base64;
+package native_java.base64;
 
 import java.io.UnsupportedEncodingException;
 import java.util.Base64;

@@ -1,4 +1,4 @@
-package native_java.exectorservice;
+package native_java.concurrent.exectorservice;
 
 import org.junit.Test;
 

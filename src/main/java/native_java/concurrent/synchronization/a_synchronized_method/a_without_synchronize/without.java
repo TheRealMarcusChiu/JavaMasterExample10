@@ -1,4 +1,4 @@
-package native_java.synchronization.a_synchronized_method.a_without_synchronize;
+package native_java.concurrent.synchronization.a_synchronized_method.a_without_synchronize;
 
 class Table {
 

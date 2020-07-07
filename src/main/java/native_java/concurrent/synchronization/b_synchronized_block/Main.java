@@ -1,4 +1,4 @@
-package native_java.synchronization.b_synchronized_block;
+package native_java.concurrent.synchronization.b_synchronized_block;
 
 public class Main {
 

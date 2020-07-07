@@ -1,4 +1,4 @@
-package native_java.java_8.newdatetime;
+package native_java.newdatetime;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;

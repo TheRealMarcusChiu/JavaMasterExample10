@@ -1,4 +1,4 @@
-package native_java.java_8.lambda;
+package native_java.lambda;
 
 import org.junit.Test;
 

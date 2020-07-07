@@ -1,4 +1,4 @@
-package native_java.java_8.newdatetime.local.and.zoned.datetime;
+package native_java.newdatetime.local.and.zoned.datetime;
 
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
