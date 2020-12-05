@@ -1,6 +1,11 @@
 package native_java.optional;
 
+import org.junit.Test;
+
 import java.util.Optional;
+
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class OptionalExample {
 
@@ -32,5 +37,38 @@ public class OptionalExample {
         //Optional.get - gets the value, value should be present
         Integer value2 = b.get();
         return value1 + value2;
+    }
+
+    @Test
+    public void whenCreatesEmptyOptional_thenCorrect() {
+        Optional<String> empty = Optional.empty();
+        assertFalse(empty.isPresent());
+    }
+
+    @Test
+    public void givenNonNull_whenCreatesNonNullable_thenCorrect() {
+        String name = "marcus chiu";
+        Optional<String> opt = Optional.of(name);
+        assertTrue(opt.isPresent());
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void givenNull_whenThrowsErrorOnCreate_thenCorrect() {
+        String name = null;
+        Optional.of(name);
+    }
+
+    @Test
+    public void givenNonNull_whenCreatesNullable_thenCorrect() {
+        String name = "marcus chiu";
+        Optional<String> opt = Optional.ofNullable(name);
+        assertTrue(opt.isPresent());
+    }
+
+    @Test
+    public void givenNull_whenCreatesNullable_thenCorrect() {
+        String name = null;
+        Optional<String> opt = Optional.ofNullable(name);
+        assertFalse(opt.isPresent());
     }
 }
