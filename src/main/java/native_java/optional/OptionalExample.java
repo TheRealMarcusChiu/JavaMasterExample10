@@ -4,8 +4,7 @@ import org.junit.Test;
 
 import java.util.Optional;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class OptionalExample {
 
@@ -32,7 +31,7 @@ public class OptionalExample {
 
         //Optional.orElse - returns the value if present otherwise returns
         //the default value passed.
-        Integer value1 = a.orElse(0);
+        Integer value1 = a.orElse(0); // short for getOrElse(0)
 
         //Optional.get - gets the value, value should be present
         Integer value2 = b.get();
@@ -70,5 +69,20 @@ public class OptionalExample {
         String name = null;
         Optional<String> opt = Optional.ofNullable(name);
         assertFalse(opt.isPresent());
+    }
+
+
+    @Test
+    public void givenNonNull_yesMapping() {
+        Integer i = 0;
+        Integer result = Optional.ofNullable(i).map(ii -> ++ii).orElse(null);
+        assertEquals(Integer.valueOf(1), result);
+    }
+
+    @Test
+    public void givenNonNull_yesMapping2() {
+        Integer i = 0;
+        Integer result = Optional.ofNullable(i).map(ii -> ii++).orElse(null);
+        assertEquals(Integer.valueOf(0), result); // map is called but increment is called after return
     }
 }
