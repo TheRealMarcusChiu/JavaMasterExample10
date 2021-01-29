@@ -8,8 +8,7 @@ public enum ExampleEnumTwo {
     private String oneFileType;
     private String twoFileType;
 
-    ExampleEnumTwo(String fileType, String oneFileType, String twoFileType)
-    {
+    ExampleEnumTwo(String fileType, String oneFileType, String twoFileType) {
         this.fileType = fileType;
         this.oneFileType = oneFileType;
         this.twoFileType = twoFileType;

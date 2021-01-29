@@ -40,4 +40,19 @@ public class Main {
         assertTrue(Days_Compact.SATURDAY.isWeekend());
         assertTrue(Days_Compact.SUNDAY.isWeekend());
     }
+
+    @Test
+    public void testAssertValues_Verbose() {
+
+        // assert false
+        assertFalse(Days_Verbose.MONDAY.isWeekend());
+        assertFalse(Days_Verbose.TUESDAY.isWeekend());
+        assertFalse(Days_Verbose.WEDNESDAY.isWeekend());
+        assertFalse(Days_Verbose.THURSDAY.isWeekend());
+        assertFalse(Days_Verbose.FRIDAY.isWeekend());
+
+        // assert true
+        assertTrue(Days_Verbose.SATURDAY.isWeekend());
+        assertTrue(Days_Verbose.SUNDAY.isWeekend());
+    }
 }
